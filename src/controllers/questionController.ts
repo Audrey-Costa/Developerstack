@@ -14,6 +14,7 @@ export async function createAnswer(req: Request, res: Response) {
   const answer = req.body;
   const id = Number(req.params.id);
   await answerService.createAnswer(answer, id);
+  res.sendStatus(201);
 }
 
 export async function get(req: Request, res: Response) {
