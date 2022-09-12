@@ -4,3 +4,8 @@ import { IAnswerData } from "../types/answerTypes";
 export async function createAnswer(answer: IAnswerData, id: number){
     await answerRepository.createAnswer(answer, id);
 }
+
+export async function getAnswers(id: number){
+    const answers = answerRepository.getAnswers(id);
+    return answers;
+}

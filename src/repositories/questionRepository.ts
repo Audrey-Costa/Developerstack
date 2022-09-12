@@ -7,5 +7,5 @@ export async function findQuestions(){
 }
 
 export async function createQuestion(question: IQuestionData) {
-    await prisma.questions.create({data: {askedBy: question.askedBy, question: question.question}})
+    await prisma.questions.create({data: {askedBy: question.askedBy, question: question.question}});
 }

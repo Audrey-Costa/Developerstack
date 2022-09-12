@@ -3,7 +3,7 @@ import {
   createAnswer,
   createQuestion,
   get,
-  getById
+  getAnswersById
 } from '../controllers/questionController';
 import { answerSchema } from '../schemas/answerSchema';
 import { questionSchema } from '../schemas/questionSchema';
@@ -13,7 +13,7 @@ const questionRouter = Router();
 
 questionRouter.get('/questions', get);
 
-questionRouter.get('/questions/:id', getById);
+questionRouter.get('/questions/:id', getAnswersById);
 
 questionRouter.post(
   '/questions',

@@ -2,7 +2,6 @@ import { Request, Response } from 'express';
 import * as questionService from '../services/questionService';
 import * as answerService from "../services/answerService"
 import { IQuestionData } from '../types/questionTypes';
-import { TypeAnswerSchema } from '../types/answerTypes';
 
 export async function createQuestion(req: Request, res: Response) {
   const question: IQuestionData = req.body;
@@ -22,6 +21,8 @@ export async function get(req: Request, res: Response) {
   res.status(200).send(questions);
 }
 
-export async function getById(req: Request, res: Response) {
-  // TODO
+export async function getAnswersById(req: Request, res: Response) {
+  const id: number = Number(req.params.id);
+  const answers = await answerService.getAnswers(id);
+  res.status(200).send(answers);
 }
