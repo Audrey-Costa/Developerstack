@@ -1,8 +1,11 @@
 import { Request, Response } from 'express';
-import { findQuestions } from '../services/questionService';
+import * as questionService from '../services/questionService';
+import { IQuestionData } from '../types/questionTypes';
 
 export async function createQuestion(req: Request, res: Response) {
-  // TODO
+  const question: IQuestionData = req.body;
+  await questionService.createQuestion(question);
+  res.sendStatus(201);
 }
 
 export async function createAnswer(req: Request, res: Response) {
@@ -10,7 +13,7 @@ export async function createAnswer(req: Request, res: Response) {
 }
 
 export async function get(req: Request, res: Response) {
-  const questions = await findQuestions()
+  const questions = await questionService.findQuestions()
   res.status(200).send(questions);
 }
 
